@@ -19,7 +19,34 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         inputElement.value = withoutHyphen.slice(0, 16);
       }
-      inputValue.length === 20 ? inputElement.classList.add('valid') : inputElement.classList.remove('valid');
+
+      if (inputValue.length === 19) {
+        inputElement.classList.add('valid');
+        const cardNumber = document.querySelector(".card-number");
+        let formattedNumber = inputValue.replace(/-/g, ' ');
+        cardNumber.textContent= formattedNumber;
+      } else {
+        inputElement.classList.remove('valid');
+      }
+    });
+
+
+    const fullNameInput = document.getElementById('fullNameInput');
+    fullNameInput.addEventListener('input', function(e) {
+      const fullNameValue = fullNameInput.value.replace(/[^A-Za-z\s]/g, '');
+      if (e) {
+        if (fullNameValue) {
+          fullNameInput.value = fullNameValue;
+          const fullName = document.querySelector(".card-name");
+          if (fullNameValue.length > 6 && fullNameValue.includes(' ')) {
+            fullName.textContent = fullNameValue;
+            fullNameInput.classList.add("valid");
+          } else {
+            fullNameInput.classList.remove(".valid");
+            fullName.textContent = "";
+          }
+        }
+      } 
     });
   });
   

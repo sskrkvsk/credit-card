@@ -12,26 +12,39 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/card.css" />
   </head>
   <body>
     <main class="container">
-      <section class="card"></section>
+      <section class="card">
+        <div class="card-number"></div>
+        <div class="card-name"></div>
+        <div class="card-date"></div>
+        <div class="card-type"></div>
+        <div class="card-ccv"></div>
+      </section>
       <section class="input-fields">
         <input
           type="text"
           maxlength="19"
           id="creditCardInput"
-          class="long card-number"
+          class="long card-number-input"
+          placeholder="CARD NUMBER"
           required
         />
-        <input type="text" class="long name" />
+        <input
+          type="text"
+          class="long name-input"
+          placeholder="FULL NAME"
+          pattern="[A-Za-z\s]+"
+        />
         <div class="input-line">
-          <input type="text" class="small month" />
-          <input type="text" class="small year" />
-          <input type="text" class="small ccv" />
+          <input type="text" class="small month-input" placeholder="MONTH" />
+          <input type="text" class="small year-input" placeholder="YEAR" />
+          <input type="text" class="small ccv-input" placeholder="CCV" />
         </div>
-        <button class="long submit-btn"></button>
+        <button class="long submit-btn">SUBMIT</button>
       </section>
     </main>
 

@@ -1,0 +1,42 @@
+.card {
+    position: relative;
+    width:  460px;
+    height: 260px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    align-self: center;
+}
+.card-number {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    background-color: aliceblue;
+    width: 90%;
+    height: 40px;
+}
+.card-type {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    background-color: aliceblue;
+    width: 20%;
+    height: 50px;
+}
+.card-name {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    background-color: aliceblue;
+    width: 50%;
+    height: 50px;
+}
+.card-date {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    background-color: aliceblue;
+    width: 30%;
+    height: 50px;
+}
+/* .card-ccv{} */
