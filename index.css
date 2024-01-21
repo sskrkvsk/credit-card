@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    min-width: 0;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+}
+h1, h2, h3, p, ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.container {
+    background-color: rgb(58, 58, 58);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 50px;
+}
+.card {
+    width:  460px;
+    height: 260px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    align-self: center;
+}
+
+.valid {
+    background-color: palegreen;
+}
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.long, .input-line {
+    width:  460px;
+    height: 50px;
+    border-radius: 10px;
+}
+.long, .small {
+    font-size: 20px;
+    padding: 0 20px;
+}
+.input-line{
+    display: flex;
+    gap: 20px;
+}
+.small {
+    border-radius: 10px;
+}
+.submit-btn {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {}
