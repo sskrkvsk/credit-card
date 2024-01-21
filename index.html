@@ -35,12 +35,30 @@
         />
         <input
           type="text"
+          id="fullNameInput"
           class="long name-input"
           placeholder="FULL NAME"
           pattern="[A-Za-z\s]+"
         />
         <div class="input-line">
-          <input type="text" class="small month-input" placeholder="MONTH" />
+          <div class="small month-input">
+            <span class="placeholder">MONTH</span>
+            <ul class="dropdown month-ul">
+              <li class="m-li none">01</li>
+              <li class="m-li none">02</li>
+              <li class="m-li none">03</li>
+              <li class="m-li none">04</li>
+              <li class="m-li none">05</li>
+              <li class="m-li none">06</li>
+              <li class="m-li none">07</li>
+              <li class="m-li none">08</li>
+              <li class="m-li none">09</li>
+              <li class="m-li none">10</li>
+              <li class="m-li none">11</li>
+              <li class="m-li none">12</li>
+            </ul>
+          </div>
+          <!-- <input type="text" class="small month-input" placeholder="MONTH" /> -->
           <input type="text" class="small year-input" placeholder="YEAR" />
           <input type="text" class="small ccv-input" placeholder="CCV" />
         </div>

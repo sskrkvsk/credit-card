@@ -25,6 +25,37 @@ input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+.month-input {
+    position: relative;
+    padding: 0;
+    outline: 0;
+    background: #2ecc71;
+    border: 1px solid crimson;
+    padding: 4px;
+    border-radius: 10px;
+    padding: 5px !important; 
+    width: 230px;
+  }
+.month-ul {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    height: 0px;
+    /* height: auto; */
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: beige;
+}
+.m-li {
+    padding: 8px 12px;
+}
+
+.none {
+    display: none;
+}
+  
 .container {
     background-color: rgb(58, 58, 58);
     border-radius: 20px;

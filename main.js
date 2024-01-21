@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fullName.textContent = fullNameValue;
             fullNameInput.classList.add("valid");
           } else {
-            fullNameInput.classList.remove(".valid");
+            fullNameInput.classList.remove("valid");
             fullName.textContent = "";
           }
         }
