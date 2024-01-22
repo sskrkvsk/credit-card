@@ -4,6 +4,7 @@
     height: 260px;
     margin-top: 30px;
     perspective: 1000px;
+    transform: 0.3s ease;
   }
   
   .card-inner {
@@ -15,9 +16,6 @@
   }
   
   
-  .card:hover .card-inner {
-    transform: rotateX(180deg);
-  }
   .card-inner.clicked {
     transform: rotateX(180deg);
   }

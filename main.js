@@ -4,6 +4,8 @@ const cvvInput = document.getElementById('cvvInput');
 const cardCVV = document.querySelector('.card-cvv');
 const card = document.getElementById("card");
 const cardInner = card.querySelector('.card-inner');
+const monthInput = document.getElementById('monthInput');
+const yearInput = document.getElementById('yearInput');
 
 inputElement.addEventListener('keydown', function(event) {
   if (event.key === '-') {
@@ -61,32 +63,39 @@ cvvInput.addEventListener('input', () => {
     cardCVV.textContent = "";}
 });
 cvvInput.addEventListener('click', (e) => {
-  // Toggle a class to indicate the click event
   cardInner.classList.toggle('clicked');
-  
-  // Prevent the click event from propagating to the document
   e.stopPropagation();
 });
-
-// Add a click event listener to the document
+card.addEventListener('click', (e) => {
+  cardInner.classList.toggle('clicked');
+  e.stopPropagation();
+});
 document.addEventListener('click', () => {
-  // Remove the 'clicked' class to revert the rotation effect
   cardInner.classList.remove('clicked');
 });
 
 
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = (e.clientX - rect.left - rect.width / 2) / 40;
+  const y = (e.clientY - rect.top - rect.height / 2) / 40;
+  card.style.transform = `translate(${x}px, ${y}px)`;
+});
+card.addEventListener('mouseleave', () => {
+  card.style.transform = 'translate(0, 0)';
+});
 
-// const appearAnimation = (element, classOne, classTwo) => {
-//   if(element.classList.contains(classOne)) {
-//       element.classList.remove(classOne);
-//       element.classList.add(classTwo);
-//     } else if (element.classList.contains(classTwo)) {
-//       element.classList.remove(classTwo);
-//       element.classList.add(classOne);
-//     } else {
-//       element.classList.add(classOne);
-//     }
-// }
-  
+const dateHandler = (element, className, listClass) => {
+  element.addEventListener('click', () => {
+    const dateDropdown = document.querySelector(className);
+    const items = document.querySelectorAll(listClass);
+    dateDropdown.style.height = '238px';
+    items.forEach((item) => {
+      item.style.opacity = '1';
+    })
+    // items.style.transform = 'scale(1)';
+    
+  });
+};
 
-
+dateHandler(monthInput, '.month-ul', '.m-li');

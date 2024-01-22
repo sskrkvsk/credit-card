@@ -35,27 +35,56 @@ input[type=number] {
     border-radius: 10px;
     padding: 5px !important; 
     width: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-.month-ul {
+  .input-fields {
+    z-index: 222;
+  }
+  .input-line {
+    z-index: 1;
+  }
+.material-symbols-outlined {
+    display: block;
+
+    /* background-color: aquamarine; */
+}
+.placeholder {
+    padding-left: 10px;
+}
+.month-ul, .year-ul {
+    z-index: 1;
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 110px;
+    width: 130px;
     height: 0;
     /* height: auto; */
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: beige;
+    /* transform: scale(0); */
+    transition: height 2s ease;
+    /* transition: transform 2s; */
 }
-.m-li {
-    padding: 8px 12px;
+.year-input {
+
+}
+.m-li, .y-li {
+    /* height: 100%; */
+    padding: 8px 0;
+    text-align: center;
+    /* height: 0; */
+    /* transform: scale(0); */
 }
 
 .none-appear {
     opacity: 0;
-    transform: scale(1);
-    animation: appearAnimation ease-in;
+   
+    /* transform: scale(1); */
 }
 /* .none-disappear {
     opacity: 1;
@@ -103,9 +132,11 @@ input[type=number] {
     width: 100px;
     margin-left: auto;
 }
-.year-input {}
+
    
 .submit-btn {
+    z-index: 100;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
