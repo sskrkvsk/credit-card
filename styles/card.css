@@ -1,12 +1,45 @@
 .card {
     position: relative;
-    width:  460px;
+    width: 460px;
     height: 260px;
     margin-top: 30px;
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .8s;
+    transform-origin: center;
+  }
+  
+  
+  .card:hover .card-inner {
+    transform: rotateX(180deg);
+  }
+  .card-inner.clicked {
+    transform: rotateX(180deg);
+  }
+  
+  .card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
     border-radius: 10px;
-    background-color: rgb(255, 0, 0);
-    align-self: center;
-}
+  }
+  
+  .card-front {
+    background-color: #ff0000;
+    transform: rotateX(0deg);
+  }
+  
+  .card-back {
+    background-color: #0000ff;
+    transform: rotateX(180deg);
+  }
+
 .card-number {
     position: absolute;
     top: 40%;
@@ -39,4 +72,11 @@
     width: 30%;
     height: 50px;
 }
-/* .card-ccv{} */
+.card-cvv{
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    background-color: gold;
+    width: 30%;
+    height: 60px;
+}

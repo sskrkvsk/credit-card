@@ -12,17 +12,27 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/card.css" />
   </head>
   <body>
     <main class="container">
-      <section class="card">
-        <div class="card-number"></div>
-        <div class="card-name"></div>
-        <div class="card-date"></div>
-        <div class="card-type"></div>
-        <div class="card-ccv"></div>
+      <section id="card" class="card">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <div class="front card-number"></div>
+            <div class="front card-name"></div>
+            <div class="front card-date"></div>
+            <div class="front card-type"></div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-cvv"></div>
+          </div>
+        </div>
       </section>
       <section class="input-fields">
         <input
@@ -42,25 +52,50 @@
         />
         <div class="input-line">
           <div class="small month-input">
-            <span class="placeholder">MONTH</span>
+            <span class="placeholder"
+              >MONTH<span class="material-symbols-outlined"> expand_more </span>
+            </span>
             <ul class="dropdown month-ul">
-              <li class="m-li none">01</li>
-              <li class="m-li none">02</li>
-              <li class="m-li none">03</li>
-              <li class="m-li none">04</li>
-              <li class="m-li none">05</li>
-              <li class="m-li none">06</li>
-              <li class="m-li none">07</li>
-              <li class="m-li none">08</li>
-              <li class="m-li none">09</li>
-              <li class="m-li none">10</li>
-              <li class="m-li none">11</li>
-              <li class="m-li none">12</li>
+              <li class="m-li none-appear">01</li>
+              <li class="m-li none-appear">02</li>
+              <li class="m-li none-appear">03</li>
+              <li class="m-li none-appear">04</li>
+              <li class="m-li none-appear">05</li>
+              <li class="m-li none-appear">06</li>
+              <li class="m-li none-appear">07</li>
+              <li class="m-li none-appear">08</li>
+              <li class="m-li none-appear">09</li>
+              <li class="m-li none-appear">10</li>
+              <li class="m-li none-appear">11</li>
+              <li class="m-li none-appear">12</li>
             </ul>
           </div>
-          <!-- <input type="text" class="small month-input" placeholder="MONTH" /> -->
-          <input type="text" class="small year-input" placeholder="YEAR" />
-          <input type="text" class="small ccv-input" placeholder="CCV" />
+          <div class="small year-input">
+            <span class="placeholder"
+              >YEAR<span class="material-symbols-outlined"> expand_more </span>
+            </span>
+            <ul class="dropdown year-ul">
+              <li class="m-li none-appear">01</li>
+              <li class="m-li none-appear">02</li>
+              <li class="m-li none-appear">03</li>
+              <li class="m-li none-appear">04</li>
+              <li class="m-li none-appear">05</li>
+              <li class="m-li none-appear">06</li>
+              <li class="m-li none-appear">07</li>
+              <li class="m-li none-appear">08</li>
+              <li class="m-li none-appear">09</li>
+              <li class="m-li none-appear">10</li>
+              <li class="m-li none-appear">11</li>
+              <li class="m-li none-appear">12</li>
+            </ul>
+          </div>
+          <input
+            type="text"
+            id="cvvInput"
+            class="small cvv-input"
+            maxlength="4"
+            placeholder="CVV"
+          />
         </div>
         <button class="long submit-btn">SUBMIT</button>
       </section>

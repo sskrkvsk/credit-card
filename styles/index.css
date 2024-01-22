@@ -25,7 +25,7 @@ input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
-.month-input {
+.month-input, .year-input {
     position: relative;
     padding: 0;
     outline: 0;
@@ -41,7 +41,7 @@ input[type=number] {
     left: 0;
     bottom: 0;
     width: 110px;
-    height: 0px;
+    height: 0;
     /* height: auto; */
     border-radius: 10px;
     display: grid;
@@ -52,9 +52,16 @@ input[type=number] {
     padding: 8px 12px;
 }
 
-.none {
-    display: none;
+.none-appear {
+    opacity: 0;
+    transform: scale(1);
+    animation: appearAnimation ease-in;
 }
+/* .none-disappear {
+    opacity: 1;
+    transform: scale(1);
+    animation: disappearAnimation ease-in;
+} */
   
 .container {
     background-color: rgb(58, 58, 58);
@@ -88,7 +95,16 @@ input[type=number] {
 }
 .small {
     border-radius: 10px;
+    width: 130px;
 }
+
+.cvv-input {
+    text-align: center;
+    width: 100px;
+    margin-left: auto;
+}
+.year-input {}
+   
 .submit-btn {
     margin-bottom: 30px;
 }
