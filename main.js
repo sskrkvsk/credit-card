@@ -12,6 +12,7 @@ const monthSpan = document.getElementById('month');
 const yearSpan = document.getElementById('year');
 const cardType = document.getElementById('cardType');
 const submitBtn = document.getElementById('submitBtn');
+const inputFields = document.getElementById('inputFields');
 
 inputElement.addEventListener('keydown', function(event) {
   if (event.key === '-') {
@@ -42,17 +43,14 @@ inputElement.addEventListener('input', (e) => {
   if (formattedNumber[0] === '4') {
     cardType.style.backgroundSize = '110%';
     cardType.style.backgroundImage = 'url(./images/visa.png)'
-    console.log('visa');
   } else if (formattedNumber[0] === '5') {
     cardType.style.backgroundImage = 'url(./images/mastercard.png)'
     cardType.style.backgroundSize = '88%';
   } else if (formattedNumber[0] > 0 && formattedNumber[0] !== 4 && formattedNumber[0] !== 5) {
     cardType.style.backgroundSize = '75%'
     cardType.style.backgroundImage = 'url(./images/card.png)'
-    console.log('else');
   } else {
     cardType.style.backgroundImage = ''
-    console.log('nothing');
   }
 });
 
@@ -108,11 +106,13 @@ card.addEventListener('mouseleave', () => {
 });
 
 const dateHandler = (element, className, listClass) => {
-  element.addEventListener('click', () => {
-    const dateDropdown = document.querySelector(className);
-    const items = document.querySelectorAll(listClass);
+  const dateDropdown = document.querySelector(className);
+  const items = document.querySelectorAll(listClass);
+  element.addEventListener('click', (e) => {
+   
     dateDropdown.style.height = '238px';
     items.forEach((item, index) => {
+      item.style.cursor = 'pointer';
       if (index < 2) {
         item.style.transition = 'ease 1s';
       } else if (index >= 2 && index < 4) {
@@ -127,52 +127,88 @@ const dateHandler = (element, className, listClass) => {
         item.style.transition = 'ease-in 4.2s';
       }
       item.style.opacity = '1';
+      if (e) {
+        hideHafler(placeholderMonth, '.month-ul', '.m-li');
+        hideHafler(placeholderYear, '.year-ul', '.y-li');
+      }
+      
+
     });});
 };
 const hideHafler = (placeholder, className, listClass) => {
   const dateDropdown = document.querySelector(className);
   const items = document.querySelectorAll(listClass);
 
-  items.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      items.forEach((item, index) => {
-        if (index < 2) {
-          item.style.transition = 'ease 1.5s';
-        } else if (index >= 2 && index < 4) {
-          item.style.transition = 'ease-in .6s';
-        } else if (index >= 4 && index < 6) {
-          item.style.transition = 'ease-in 0.4s';
-        } else if (index >= 6 && index < 8) {
-          item.style.transition = 'ease-in 0.4s';
-        } else if (index >= 8 && index < 10) {
-          item.style.transition = 'ease-in 0.4s';
-        } else  {
-          item.style.transition = 'ease-in 0.2s';
-        }
-        item.style.opacity = '0';
-      })
-      dateDropdown.style.height = '0';
-      placeholder.textContent = item.textContent;
+  // Define the named function for your event listener
+  const clickHandler = (e) => {
+    items.forEach((item, index) => {
+      item.style.cursor = 'default';
 
-      if(placeholder.textContent.length === 2) {
-        monthSpan.textContent = `${placeholder.textContent}  /`;
-        console.log(monthSpan.textContent);
-      } else if (placeholder.textContent.length === 4) {
-        yearSpan.textContent = `   ${placeholder.textContent}`;
+      // Set transitions based on index
+      if (index < 2) {
+        item.style.transition = 'ease 1.5s';
+      } else if (index >= 2 && index < 4) {
+        item.style.transition = 'ease-in .6s';
+      } else if (index >= 4 && index < 6) {
+        item.style.transition = 'ease-in 0.4s';
+      } else if (index >= 6 && index < 8) {
+        item.style.transition = 'ease-in 0.4s';
+      } else if (index >= 8 && index < 10) {
+        item.style.transition = 'ease-in 0.4s';
+      } else {
+        item.style.transition = 'ease-in 0.2s';
       }
 
-      e.stopPropagation();
-    })
+      item.style.opacity = '0';
+    });
+
+    dateDropdown.style.height = '0';
+    placeholder.textContent = e.currentTarget.textContent;
+
+    if (placeholder.textContent.length === 2) {
+      monthSpan.textContent = `${placeholder.textContent}  /`;
+    } else if (placeholder.textContent.length === 4) {
+      yearSpan.textContent = `   ${placeholder.textContent}`;
+    }
+
+    // Remove the event listener after it has been triggered
+    items.forEach((item) => {
+      item.removeEventListener('click', clickHandler);
+    });
+
+    e.stopPropagation();
+  };
+
+  // Add the event listener to your items using the named function
+  items.forEach((item) => {
+    item.addEventListener('click', clickHandler);
+  });
+};
+dateHandler(document.querySelector('.placeholdersM'), '.month-ul', '.m-li');
+dateHandler(document.querySelector('.placeholdersY'), '.year-ul', '.y-li');
+
+const submitChange = (childH, childD, inputH, textC, btnW, mT, sH, sO) => {
+  const children = document.querySelectorAll('.child');
+  const success = document.querySelector('.success');
+  children.forEach((child) => {
+    child.style.height = childH; //
+    setTimeout(() => {
+      child.style.display = childD; //
+    }, 500);
   })
+  inputFields.style.height = inputH;
+  submitBtn.textContent = textC;
+  submitBtn.style.width = btnW;
+  setTimeout(() => {
+    submitBtn.style.marginTop = mT;
+    success.style.height = sH;
+    success.style.opacity = sO;
+  }, 500);
 }
-dateHandler(monthInput, '.month-ul', '.m-li');
-dateHandler(yearInput, '.year-ul', '.y-li');
-hideHafler(placeholderMonth, '.month-ul', '.m-li');
-hideHafler(placeholderYear, '.year-ul', '.y-li');
-
-const fullDate = (placeholder, span) => {
-  
-  
-}
-
-fullDate(placeholderMonth, monthSpan);
+submitBtn.addEventListener('click', () => {
+  if (submitBtn.textContent === "SUBMIT") {
+    submitChange('0px', 'none', '0px', 'BACK', '30%', '40px', '70px', '1');
+  } else if (submitBtn.textContent === "BACK") {
+    submitChange('50px', 'flex', '200px', 'SUBMIT', '100%', '30px', '20px', '0');
+  }
+})

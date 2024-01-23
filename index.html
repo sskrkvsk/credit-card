@@ -36,26 +36,28 @@
           </div>
         </div>
       </section>
-      <section class="input-fields">
+      <section id="inputFields" class="input-fields">
         <input
           type="text"
           maxlength="19"
           id="creditCardInput"
-          class="long card-number-input"
+          class="long card-number-input child"
           placeholder="CARD NUMBER"
           required
         />
         <input
           type="text"
           id="fullNameInput"
-          class="long name-input"
+          class="long name-input child"
           placeholder="FULL NAME"
           pattern="[A-Za-z\s]+"
         />
-        <div class="input-line">
+        <div class="input-line child">
           <div id="monthInput" class="small month-input">
-            <span id="placeholder-month" class="placeholder">month </span>
-            <span class="material-symbols-outlined"> expand_more </span>
+            <div class="placeholdersM">
+              <span id="placeholder-month" class="placeholder">month </span>
+              <span class="material-symbols-outlined"> expand_more </span>
+            </div>
             <ul class="dropdown month-ul">
               <li class="m-li none-appear">01</li>
               <li class="m-li none-appear">02</li>
@@ -72,8 +74,10 @@
             </ul>
           </div>
           <div id="yearInput" class="small year-input">
-            <span id="placeholder-year" class="placeholder">YEAR </span>
-            <span class="material-symbols-outlined"> expand_more </span>
+            <div class="placeholdersY">
+              <span id="placeholder-year" class="placeholder">year </span>
+              <span class="material-symbols-outlined"> expand_more </span>
+            </div>
             <ul class="dropdown year-ul">
               <li class="y-li none-appear">2024</li>
               <li class="y-li none-appear">2025</li>
@@ -97,8 +101,9 @@
             placeholder="CVV"
           />
         </div>
-        <button id="submitBtn" class="long submit-btn">SUBMIT</button>
       </section>
+      <p class="success">Your card data have been submited!</p>
+      <button id="submitBtn" class="long submit-btn">SUBMIT</button>
     </main>
 
     <script src="./main.js"></script>
