@@ -55,7 +55,6 @@ input[type=number] {
     padding-left: 10px;
 }
 .month-ul, .year-ul {
-    z-index: 1;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -67,7 +66,7 @@ input[type=number] {
     grid-template-columns: 1fr 1fr;
     background-color: beige;
     /* transform: scale(0); */
-    transition: height 2s ease;
+    transition: height 1.5s ease;
     /* transition: transform 2s; */
 }
 .year-input {
@@ -83,7 +82,7 @@ input[type=number] {
 
 .none-appear {
     opacity: 0;
-   
+   /* transition: ease 2s; */
     /* transform: scale(1); */
 }
 /* .none-disappear {

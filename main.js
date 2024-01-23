@@ -6,6 +6,12 @@ const card = document.getElementById("card");
 const cardInner = card.querySelector('.card-inner');
 const monthInput = document.getElementById('monthInput');
 const yearInput = document.getElementById('yearInput');
+const placeholderMonth = document.getElementById('placeholder-month');
+const placeholderYear = document.getElementById('placeholder-year');
+const monthSpan = document.getElementById('month');
+const yearSpan = document.getElementById('year');
+const cardType = document.getElementById('cardType');
+const submitBtn = document.getElementById('submitBtn');
 
 inputElement.addEventListener('keydown', function(event) {
   if (event.key === '-') {
@@ -32,6 +38,22 @@ inputElement.addEventListener('input', (e) => {
     cardNumber.textContent= formattedNumber;
   } else {
     inputElement.classList.remove('valid');}
+
+  if (formattedNumber[0] === '4') {
+    cardType.style.backgroundSize = '110%';
+    cardType.style.backgroundImage = 'url(./images/visa.png)'
+    console.log('visa');
+  } else if (formattedNumber[0] === '5') {
+    cardType.style.backgroundImage = 'url(./images/mastercard.png)'
+    cardType.style.backgroundSize = '88%';
+  } else if (formattedNumber[0] > 0 && formattedNumber[0] !== 4 && formattedNumber[0] !== 5) {
+    cardType.style.backgroundSize = '75%'
+    cardType.style.backgroundImage = 'url(./images/card.png)'
+    console.log('else');
+  } else {
+    cardType.style.backgroundImage = ''
+    console.log('nothing');
+  }
 });
 
 
@@ -90,12 +112,67 @@ const dateHandler = (element, className, listClass) => {
     const dateDropdown = document.querySelector(className);
     const items = document.querySelectorAll(listClass);
     dateDropdown.style.height = '238px';
-    items.forEach((item) => {
+    items.forEach((item, index) => {
+      if (index < 2) {
+        item.style.transition = 'ease 1s';
+      } else if (index >= 2 && index < 4) {
+        item.style.transition = 'ease-in 1.8s';
+      } else if (index >= 4 && index < 6) {
+        item.style.transition = 'ease-in 1.9s';
+      } else if (index >= 6 && index < 8) {
+        item.style.transition = 'ease-in 2s';
+      } else if (index >= 8 && index < 10) {
+        item.style.transition = 'ease-in 3.4s';
+      } else  {
+        item.style.transition = 'ease-in 4.2s';
+      }
       item.style.opacity = '1';
-    })
-    // items.style.transform = 'scale(1)';
-    
-  });
+    });});
 };
+const hideHafler = (placeholder, className, listClass) => {
+  const dateDropdown = document.querySelector(className);
+  const items = document.querySelectorAll(listClass);
 
+  items.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      items.forEach((item, index) => {
+        if (index < 2) {
+          item.style.transition = 'ease 1.5s';
+        } else if (index >= 2 && index < 4) {
+          item.style.transition = 'ease-in .6s';
+        } else if (index >= 4 && index < 6) {
+          item.style.transition = 'ease-in 0.4s';
+        } else if (index >= 6 && index < 8) {
+          item.style.transition = 'ease-in 0.4s';
+        } else if (index >= 8 && index < 10) {
+          item.style.transition = 'ease-in 0.4s';
+        } else  {
+          item.style.transition = 'ease-in 0.2s';
+        }
+        item.style.opacity = '0';
+      })
+      dateDropdown.style.height = '0';
+      placeholder.textContent = item.textContent;
+
+      if(placeholder.textContent.length === 2) {
+        monthSpan.textContent = `${placeholder.textContent}  /`;
+        console.log(monthSpan.textContent);
+      } else if (placeholder.textContent.length === 4) {
+        yearSpan.textContent = `   ${placeholder.textContent}`;
+      }
+
+      e.stopPropagation();
+    })
+  })
+}
 dateHandler(monthInput, '.month-ul', '.m-li');
+dateHandler(yearInput, '.year-ul', '.y-li');
+hideHafler(placeholderMonth, '.month-ul', '.m-li');
+hideHafler(placeholderYear, '.year-ul', '.y-li');
+
+const fullDate = (placeholder, span) => {
+  
+  
+}
+
+fullDate(placeholderMonth, monthSpan);

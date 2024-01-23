@@ -26,8 +26,10 @@
           <div class="card-face card-front">
             <div class="front card-number"></div>
             <div class="front card-name"></div>
-            <div class="front card-date"></div>
-            <div class="front card-type"></div>
+            <div id="cardDate" class="front card-date">
+              <span id="month"></span><span id="year"></span>
+            </div>
+            <div id="cardType" class="front card-type"></div>
           </div>
           <div class="card-face card-back">
             <div class="card-cvv"></div>
@@ -52,7 +54,7 @@
         />
         <div class="input-line">
           <div id="monthInput" class="small month-input">
-            <span class="placeholder">month </span>
+            <span id="placeholder-month" class="placeholder">month </span>
             <span class="material-symbols-outlined"> expand_more </span>
             <ul class="dropdown month-ul">
               <li class="m-li none-appear">01</li>
@@ -70,7 +72,7 @@
             </ul>
           </div>
           <div id="yearInput" class="small year-input">
-            <span class="placeholder">YEAR </span>
+            <span id="placeholder-year" class="placeholder">YEAR </span>
             <span class="material-symbols-outlined"> expand_more </span>
             <ul class="dropdown year-ul">
               <li class="y-li none-appear">2024</li>
@@ -88,14 +90,14 @@
             </ul>
           </div>
           <input
-            type="text"
+            type="password"
             id="cvvInput"
             class="small cvv-input"
             maxlength="4"
             placeholder="CVV"
           />
         </div>
-        <button class="long submit-btn">SUBMIT</button>
+        <button id="submitBtn" class="long submit-btn">SUBMIT</button>
       </section>
     </main>
 
