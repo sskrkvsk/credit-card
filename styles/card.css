@@ -45,6 +45,9 @@
     background-color: aliceblue;
     width: 90%;
     height: 40px;
+    padding: 5px 20px;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
 }
 .card-type {
     position: absolute;
@@ -78,4 +81,10 @@
     background-color: gold;
     width: 30%;
     height: 60px;
+    border: none;
+    cursor: default;
+}
+
+.card-cvv:active, .card-cvv:focus {
+  outline: none !important;
 }

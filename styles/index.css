@@ -40,10 +40,6 @@ input[type=number] {
     justify-content: space-between;
     align-items: center;
   }
-
-  .input-line {
-    /* z-index: 1; */
-  }
 .material-symbols-outlined {
     display: block;
 

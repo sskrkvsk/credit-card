@@ -36,7 +36,24 @@ inputElement.addEventListener('input', (e) => {
     let formattedNumber = inputValue.replace(/-/g, ' ');
   if (inputValue.length === 19) {
     inputElement.classList.add('valid');
-    cardNumber.textContent= formattedNumber;
+    cardNumber.textContent = formattedNumber;
+  
+    const splitedNumber = formattedNumber.split('');
+    console.log(splitedNumber);
+    const hiddenNumber = splitedNumber.map((number, index) =>{
+      if (number == " " || number == "-") {
+        return number
+      } else {
+        if(index > 3 && index < 14) {
+          number = '*';
+        } else {
+          return number;
+        }
+        return number
+      }
+      
+    });
+    setTimeout(()=> {cardNumber.textContent = hiddenNumber.join('')}, 4000);
   } else {
     inputElement.classList.remove('valid');}
 
@@ -76,7 +93,8 @@ cvvInput.addEventListener('input', () => {
   let inputValue = cvvInput.value.replace(/[^0-9-]/g, '');
   cvvInput.value = inputValue;
   if (inputValue.length >= 3) {
-    cardCVV.textContent = inputValue;
+    cardCVV.value = inputValue;
+    setTimeout(()=>{cardCVV.type = "password"}, 2000);
     cvvInput.classList.add("valid");
   } else {
     cvvInput.classList.remove("valid");
@@ -211,4 +229,13 @@ submitBtn.addEventListener('click', () => {
   } else if (submitBtn.textContent === "BACK") {
     submitChange('50px', 'flex', '200px', 'SUBMIT', '100%', '30px', '20px', '0');
   }
+});
+
+cardCVV.addEventListener('click', (e) => {
+  if (cardCVV.type === "password") {
+    cardCVV.type = "text";
+  } else {
+    cardCVV.type = "password";
+  }
+  e.stopPropagation();
 })
