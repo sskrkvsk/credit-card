@@ -1,4 +1,5 @@
 const inputElement = document.getElementById('creditCardInput');
+const container = document.querySelector('.container');
 const fullNameInput = document.getElementById('fullNameInput');
 const cvvInput = document.getElementById('cvvInput');
 const cardCVV = document.querySelector('.card-cvv');
@@ -13,6 +14,7 @@ const yearSpan = document.getElementById('year');
 const cardType = document.getElementById('cardType');
 const submitBtn = document.getElementById('submitBtn');
 const inputFields = document.getElementById('inputFields');
+const themeBtn = document.getElementById('theme');
 
 inputElement.addEventListener('keydown', function(event) {
   if (event.key === '-') {
@@ -132,17 +134,23 @@ const dateHandler = (element, className, listClass) => {
     items.forEach((item, index) => {
       item.style.cursor = 'pointer';
       if (index < 2) {
-        item.style.transition = 'ease 1s';
+        item.style.transition = 'ease 1.1s';
+        item.style.borderBottom = '1px solid #9b9b9b';
       } else if (index >= 2 && index < 4) {
-        item.style.transition = 'ease-in 1.8s';
+        item.style.transition = 'ease-in 2.5s';
+        item.style.borderBottom = '1px solid #9b9b9b';
       } else if (index >= 4 && index < 6) {
-        item.style.transition = 'ease-in 1.9s';
+        item.style.transition = 'ease-in 2.7s';
+        item.style.borderBottom = '1px solid #9b9b9b';
       } else if (index >= 6 && index < 8) {
-        item.style.transition = 'ease-in 2s';
+        item.style.transition = 'ease-in 2.8s';
+        item.style.borderBottom = '1px solid #9b9b9b';
       } else if (index >= 8 && index < 10) {
-        item.style.transition = 'ease-in 3.4s';
+        item.style.transition = 'ease-in 4.9s';
+        item.style.borderBottom = '1px solid #9b9b9b';
       } else  {
-        item.style.transition = 'ease-in 4.2s';
+        item.style.transition = 'ease-in 5.4s';
+        
       }
       item.style.opacity = '1';
       if (e) {
@@ -163,19 +171,20 @@ const hideHafler = (placeholder, className, listClass) => {
       item.style.cursor = 'default';
 
       // Set transitions based on index
-      if (index < 2) {
-        item.style.transition = 'ease 1.5s';
-      } else if (index >= 2 && index < 4) {
-        item.style.transition = 'ease-in .6s';
-      } else if (index >= 4 && index < 6) {
-        item.style.transition = 'ease-in 0.4s';
-      } else if (index >= 6 && index < 8) {
-        item.style.transition = 'ease-in 0.4s';
-      } else if (index >= 8 && index < 10) {
-        item.style.transition = 'ease-in 0.4s';
-      } else {
-        item.style.transition = 'ease-in 0.2s';
-      }
+      item.style.transition = 'ease 0.2s';
+      // if (index < 2) {
+      //   item.style.transition = 'ease 1.2s';
+      // } else if (index >= 2 && index < 4) {
+      //   item.style.transition = 'ease-in .6s';
+      // } else if (index >= 4 && index < 6) {
+      //   item.style.transition = 'ease-in 0.4s';
+      // } else if (index >= 6 && index < 8) {
+      //   item.style.transition = 'ease-in 0.4s';
+      // } else if (index >= 8 && index < 10) {
+      //   item.style.transition = 'ease-in 0.4s';
+      // } else {
+      //   item.style.transition = 'ease-in 0.2s';
+      // }
 
       item.style.opacity = '0';
     });
@@ -239,3 +248,19 @@ cardCVV.addEventListener('click', (e) => {
   }
   e.stopPropagation();
 })
+
+themeBtn.addEventListener('click', () => {
+  container.classList.toggle('dark-container');
+  document.body.classList.toggle('dark-body');
+  creditCardInput.classList.toggle('dark-input');
+  fullNameInput.classList.toggle('dark-input');
+  monthInput.classList.toggle('dark-small-input');
+  yearInput.classList.toggle('dark-small-input');
+  cvvInput.classList.toggle('dark-input');
+  submitBtn.classList.toggle('dark-submit');
+  document.querySelector('.card-face').classList.toggle('dark-card');
+  document.querySelector('.card-back').classList.toggle('dark-card');
+  document.querySelector('.year-ul').classList.toggle('dark-ul');
+  document.querySelector('.month-ul').classList.toggle('dark-ul');
+  document.querySelector('.success').classList.toggle('dark-success');
+});

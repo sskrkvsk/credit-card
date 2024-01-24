@@ -8,7 +8,10 @@ body {
     color: #3e3e3e;
     display: flex;
     justify-content: center;
+    transition: linear 0.5s;
 }
+
+
 h1, h2, h3, p, ul, ol {
     margin: 0;
     padding: 0;
@@ -36,16 +39,17 @@ input[type=number] {
     position: relative;
     padding: 0;
     outline: 0;
-    border: 1px solid #9b9b9b;
+    /* border: 1px solid #9b9b9b; */
     box-shadow: 10px 10px 20px #b8b7b7, -10px -10px 20px #fff;
     padding: 4px;
     border-radius: 10px;
     padding: 5px !important; 
-    width: 230px;
+    min-width: 130px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    transition: linear 0.5s;
   }
 .material-symbols-outlined {
     display: block;
@@ -54,7 +58,7 @@ input[type=number] {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 130px;
 }
 .placeholder {
     padding-left: 10px;
@@ -70,9 +74,8 @@ input[type=number] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: #fff;
-    box-shadow: inset 5px 5px 10px #d4d4d4, inset -5px -5px 10px #ffffff;
     /* transform: scale(0); */
-    transition: height 1.5s ease;
+    transition: height 0.5s ease;
     /* transition: transform 2s; */
 }
 .m-li, .y-li {
@@ -80,6 +83,7 @@ input[type=number] {
     cursor:default;
     padding: 8px 0;
     text-align: center;
+    /* border-bottom: 1px solid #9b9b9b; */
     /* height: 0; */
     /* transform: scale(0); */
 }
@@ -90,6 +94,9 @@ input[type=number] {
    /* transition: ease 2s; */
     /* transform: scale(1); */
 }
+.none-appear:hover {
+    font-weight: 900;
+}
 
 .display-none {
     display: none;
@@ -98,6 +105,7 @@ input[type=number] {
 .container {
     /* max-width: 2500px; */
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 500px;
     background-color: #d9d9d9;
     box-shadow: 10px 10px 20px #b8b7b7, -10px -10px 20px #fff;
@@ -106,9 +114,10 @@ input[type=number] {
     flex-direction: column;
     /* align-items: center; */
     padding: 30px;
+    transition: linear 0.5s;
 }
 .valid {
-    background-color: palegreen;
+    box-shadow: 10px 10px 20px #b8b7b7, -10px -10px 20px #fff;
 }
 .input-fields {
     display: flex;
@@ -148,11 +157,13 @@ input[type=number] {
     text-align: center;
     width: 100px;
     margin-left: auto;
+    transition: linear 0.5s;
 }
 
 .success {
     z-index: 333;
-    background-color: aliceblue;
+    background-color: #d9d9d9;
+    box-shadow: 10px 10px 20px #b8b7b7, -10px -10px 20px #fff;
     border-radius: 10px;
     height: 20px;
     display: flex;
@@ -162,17 +173,71 @@ input[type=number] {
     transition: linear 0.5s;
 }
 .submit-btn {
-    background-color: #4caf50;
+    background-color: #d9d9d9;
+    color: #3e3e3e;
+    box-shadow: 10px 10px 20px #b8b7b7, -10px -10px 20px #fff;
+    border: none;
     z-index: 2222;
     align-self: center;
     margin: 30px 0;
     transition: linear 0.5s;
 }
 
+.theme {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #2c2c2c;
+    box-shadow: 3px 3px 5px #0f0f0f, -3px -3px 5px #686868;
+    border: 1px solid #111111;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+/* dark */
+.dark-body {
+    background-color: #121212;
+    color: #ffffff;
+}
+.dark-container {
+    background-color: #1e1e1e;
+    box-shadow: 10px 10px 20px #0f0f0f, -10px -10px 20px #272727;
+}
+
+.dark-input {
+    color: #fff;
+    background-color: #2c2c2c;
+    box-shadow: inset 5px 5px 10px #181818, inset -5px -5px 10px #2b2b2b
+}
+.dark-small-input {
+    color: #d4d4d4;
+    border: #0f0f0f;
+    background-color: #2c2c2c;
+    box-shadow: 10px 10px 20px #0f0f0f, -10px -10px 20px #272727;
+}
+.dark-ul {
+    color: #d4d4d4;
+    background-color: #2c2c2c;
+    border-bottom: #d4d4d4;
+}
+.dark-submit, .dark-success {
+    color: #a0a0a0;
+    background-color: #2c2c2c;
+    box-shadow: 10px 10px 20px #0f0f0f, -10px -10px 20px #272727;
+}
+
 @media (max-width: 560px) {
     .container {
         padding: 10px;
-        margin-top: 0px;
+        margin-top: 10px;
+    }
+    .input-line{
+        gap: 5px;
+    }
+    .theme {
+        /* bottom: -60px; */
+        right: 20px;
     }
 }
 
