@@ -53,7 +53,6 @@ inputElement.addEventListener('input', (e) => {
         }
         return number
       }
-      
     });
     setTimeout(()=> {cardNumber.textContent = hiddenNumber.join('')}, 4000);
   } else {
@@ -73,8 +72,6 @@ inputElement.addEventListener('input', (e) => {
   }
 });
 
-
-    
 fullNameInput.addEventListener('input', (e) => {
   const fullNameValue = fullNameInput.value.replace(/[^A-Za-z\s]/g, '');
   if (e) {
@@ -88,8 +85,6 @@ fullNameInput.addEventListener('input', (e) => {
         fullNameInput.classList.remove("valid");
         fullName.textContent = "";}
 }}});
-
-    
 
 cvvInput.addEventListener('input', () => {
   let inputValue = cvvInput.value.replace(/[^0-9-]/g, '');
@@ -114,7 +109,6 @@ document.addEventListener('click', () => {
   cardInner.classList.remove('clicked');
 });
 
-
 card.addEventListener('mousemove', (e) => {
   const rect = card.getBoundingClientRect();
   const x = (e.clientX - rect.left - rect.width / 2) / 40;
@@ -129,7 +123,6 @@ const dateHandler = (element, className, listClass) => {
   const dateDropdown = document.querySelector(className);
   const items = document.querySelectorAll(listClass);
   element.addEventListener('click', (e) => {
-   
     dateDropdown.style.height = '238px';
     items.forEach((item, index) => {
       item.style.cursor = 'pointer';
@@ -150,63 +143,35 @@ const dateHandler = (element, className, listClass) => {
         item.style.borderBottom = '1px solid #9b9b9b';
       } else  {
         item.style.transition = 'ease-in 5.4s';
-        
       }
       item.style.opacity = '1';
       if (e) {
         hideHafler(placeholderMonth, '.month-ul', '.m-li');
         hideHafler(placeholderYear, '.year-ul', '.y-li');
       }
-      
-
     });});
 };
 const hideHafler = (placeholder, className, listClass) => {
   const dateDropdown = document.querySelector(className);
   const items = document.querySelectorAll(listClass);
-
-  // Define the named function for your event listener
   const clickHandler = (e) => {
     items.forEach((item, index) => {
       item.style.cursor = 'default';
-
-      // Set transitions based on index
       item.style.transition = 'ease 0.2s';
-      // if (index < 2) {
-      //   item.style.transition = 'ease 1.2s';
-      // } else if (index >= 2 && index < 4) {
-      //   item.style.transition = 'ease-in .6s';
-      // } else if (index >= 4 && index < 6) {
-      //   item.style.transition = 'ease-in 0.4s';
-      // } else if (index >= 6 && index < 8) {
-      //   item.style.transition = 'ease-in 0.4s';
-      // } else if (index >= 8 && index < 10) {
-      //   item.style.transition = 'ease-in 0.4s';
-      // } else {
-      //   item.style.transition = 'ease-in 0.2s';
-      // }
-
       item.style.opacity = '0';
     });
-
     dateDropdown.style.height = '0';
     placeholder.textContent = e.currentTarget.textContent;
-
     if (placeholder.textContent.length === 2) {
       monthSpan.textContent = `${placeholder.textContent}  /`;
     } else if (placeholder.textContent.length === 4) {
       yearSpan.textContent = `   ${placeholder.textContent}`;
     }
-
-    // Remove the event listener after it has been triggered
     items.forEach((item) => {
       item.removeEventListener('click', clickHandler);
     });
-
     e.stopPropagation();
   };
-
-  // Add the event listener to your items using the named function
   items.forEach((item) => {
     item.addEventListener('click', clickHandler);
   });
@@ -218,9 +183,9 @@ const submitChange = (childH, childD, inputH, textC, btnW, mT, sH, sO) => {
   const children = document.querySelectorAll('.child');
   const success = document.querySelector('.success');
   children.forEach((child) => {
-    child.style.height = childH; //
+    child.style.height = childH; 
     setTimeout(() => {
-      child.style.display = childD; //
+      child.style.display = childD; 
     }, 500);
   })
   inputFields.style.height = inputH;
