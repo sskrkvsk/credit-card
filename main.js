@@ -146,12 +146,12 @@ const dateHandler = (element, className, listClass) => {
       }
       item.style.opacity = '1';
       if (e) {
-        hideHafler(placeholderMonth, '.month-ul', '.m-li');
-        hideHafler(placeholderYear, '.year-ul', '.y-li');
+        hideHafler(placeholderMonth, monthInput, '.month-ul', '.m-li');
+        hideHafler(placeholderYear, yearInput, '.year-ul', '.y-li');
       }
     });});
 };
-const hideHafler = (placeholder, className, listClass) => {
+const hideHafler = (placeholder, input, className, listClass) => {
   const dateDropdown = document.querySelector(className);
   const items = document.querySelectorAll(listClass);
   const clickHandler = (e) => {
@@ -161,7 +161,9 @@ const hideHafler = (placeholder, className, listClass) => {
       item.style.opacity = '0';
     });
     dateDropdown.style.height = '0';
+    input.classList.add('valid');
     placeholder.textContent = e.currentTarget.textContent;
+    placeholder.classList.toggle('valid');
     if (placeholder.textContent.length === 2) {
       monthSpan.textContent = `${placeholder.textContent}  /`;
     } else if (placeholder.textContent.length === 4) {
